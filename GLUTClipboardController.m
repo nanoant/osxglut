@@ -212,7 +212,7 @@
             fromPasteboard: (NSPasteboard *)pboard type: (NSString *)type
 {
 #if defined(__LP64__)
-	QTMovie			*myMovie	= [[[QTMovie alloc] movieWithPasteboard: pboard error: nil] autorelease];
+	QTMovie			*myMovie	= [QTMovie movieWithPasteboard: pboard error: nil];
 	QTMovieView		*myMovieView = nil;
 
 	myMovieView = [[[QTMovieView alloc] initWithFrame: NSMakeRect(0.0, 0.0, 10.0, 10.0)] autorelease];
