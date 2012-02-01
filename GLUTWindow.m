@@ -646,7 +646,7 @@ static NSArray *	gServicesTypes = nil;
    _viewStorage = nil;
 }
 
-- (void)orderWindow:(NSWindowOrderingMode)place relativeTo:(int)otherWin
+- (void)orderWindow:(NSWindowOrderingMode)place relativeTo:(NSInteger)otherWin
 {
    GLUTView *	view = (GLUTView *) [self contentView];
 

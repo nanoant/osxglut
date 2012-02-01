@@ -333,7 +333,7 @@ void __glutStartIdleFuncTimer(void)
    glutIdleFunc(NULL);
 }
 
-- (BOOL)validateMenuItem:(id <NSMenuItem>)menuItem
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
    if((NSMenuItem *)menuItem == _aboutMenuItem && !_isPackaged) {
       return NO;
