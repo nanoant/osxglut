@@ -52,6 +52,8 @@ static int	gMaxAuxBufs = 0;
 static int	gMinSamples = INT_MAX, gMaxSamples = 0;
 static int	gMaxColor = 0, gMaxAlpha = 0;
 static int	gMaxAccumColor = 0, gMaxAccumAlpha = 0;
+// FIXME: CGLDescribeRenderer does not provide profile version
+static int	gMinProfile = 10, gMaxProfile = INT_MAX;
 
 #define MAX_BITS 17
 static char	gBitTable[MAX_BITS] = {
@@ -211,6 +213,9 @@ static NSOpenGLPixelFormat *findMatch(Criterion *criteria, int ncriteria, int ma
    int							i, n;
    int							redWeight = 0, greenWeight = 0, blueWeight = 0, alphaWeight = 0;
    int							redWeightA = 0, greenWeightA = 0, blueWeightA = 0, alphaWeightA = 0;
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7
+   int							profile = 0;
+#endif
    
    if((mask & (1 << CI_MODE)) || (mask & (1 << LUMINANCE_MODE)))
       return nil;
@@ -290,6 +295,11 @@ static NSOpenGLPixelFormat *findMatch(Criterion *criteria, int ncriteria, int ma
                if(weightForCriterion(&criteria[i], 0, 1) > 0)
                   list[n++] = NSOpenGLPFANoRecovery;
                break;
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7
+         case PROFILE:
+               profile = weightForCriterion(&criteria[i], gMinProfile, gMaxProfile);
+               break;
+#endif
          default:
                /* do nothing */
                break;
@@ -319,6 +329,13 @@ static NSOpenGLPixelFormat *findMatch(Criterion *criteria, int ncriteria, int ma
       list[n++] = __glutGetCurrentDMDepth ();
       list[n++] = NSOpenGLPFAClosestPolicy; // add any time color depth is used
    }
+
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7
+   if(profile) {
+      list[n++] = NSOpenGLPFAOpenGLProfile; // i.e. 0x3200 for OpenGL 3.2 Core Profile and 0x1000 for compatibility
+      list[n++] = (profile / 10) * 0x1000 + (profile % 10) * 0x0100;
+   }
+#endif
 
    list[n] = 0;
    
@@ -592,6 +609,22 @@ static int parseCriteria(char *word, Criterion *criterion, int *mask, BOOL *allo
              return 1;
              }
          return -1;
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7
+      case 'p':
+         if (!strcmp(word, "profile")) {
+            criterion[0].capability = PROFILE;
+            if (comparator == CMP_NONE) {
+               criterion[0].comparison = CMP_GTE;
+               criterion[0].value = 32;
+            } else {
+               criterion[0].comparison = comparator;
+               criterion[0].value = value;
+            }
+            *mask |= (1 << PROFILE);
+            return 1;
+         }
+         return -1;
+#endif
       case 'r':
          if (!strcmp(word, "red")) {
             criterion[0].capability = RED_SIZE;

@@ -146,6 +146,8 @@ typedef struct _GLUTList
 #define CI_MODE                 (NUM_CAPS + 2)
 #define LUMINANCE_MODE		     (NUM_CAPS + 3)
 
+#define PROFILE                 (NUM_CAPS + 4)
+
 #define CMP_NONE	0
 #define CMP_EQ		1
 #define CMP_NEQ	2
