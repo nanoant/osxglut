@@ -10,6 +10,9 @@
 
 
 @interface GLUTClipboardController : NSWindowController
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5
+   <NSWindowDelegate>
+#endif
 {
    IBOutlet NSScrollView *		_scrollView;
    IBOutlet NSTextField *		_infoText;

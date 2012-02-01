@@ -45,6 +45,9 @@
 
 
 @interface GLUTApplication : NSApplication
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5
+   <NSApplicationDelegate>
+#endif
 {
 @private
    IBOutlet NSMenuItem *	_aboutMenuItem;
