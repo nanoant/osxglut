@@ -353,7 +353,7 @@ void __glutWarning(char *format,...)
 		vsprintf(fmtresult, format, args);
 	va_end(args);
 	
-	NSLog([NSString stringWithFormat: @"GLUT Warning: %s\n", fmtresult]);
+	NSLog(@"GLUT Warning: %s\n", fmtresult);
 }
 
 void __glutFatalError(char *format,...) /* will exit */
@@ -365,7 +365,7 @@ void __glutFatalError(char *format,...) /* will exit */
 		vsprintf(fmtresult, format, args);
 	va_end(args);
 	
-	NSLog([NSString stringWithFormat: @"GLUT Fatal Error: %s\n", fmtresult]);
+	NSLog(@"GLUT Fatal Error: %s\n", fmtresult);
 	exit(1);
 }
 
@@ -378,6 +378,6 @@ void __glutFatalUsage(char *format,...) /* will exit */
 		vsprintf(fmtresult, format, args);
 	va_end(args);
 	
-	NSLog([NSString stringWithFormat: @"GLUT Fatal API Usage: %s\n", fmtresult]);
+	NSLog(@"GLUT Fatal API Usage: %s\n", fmtresult);
 	abort();
 }
