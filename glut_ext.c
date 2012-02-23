@@ -114,6 +114,7 @@ const static struct name_address_pair glut_functions[] = {
    { "glutKeyboardFunc", (const void *) glutKeyboardFunc },
    { "glutMouseFunc", (const void *) glutMouseFunc },
    { "glutMotionFunc", (const void *) glutMotionFunc },
+   { "glutScrollFunc", (const void *) glutScrollFunc },
    { "glutPassiveMotionFunc", (const void *) glutPassiveMotionFunc },
    { "glutEntryFunc", (const void *) glutEntryFunc },
    { "glutVisibilityFunc", (const void *) glutVisibilityFunc },

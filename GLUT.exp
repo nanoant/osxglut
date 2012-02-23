@@ -62,6 +62,7 @@ _glutReshapeFunc
 _glutKeyboardFunc
 _glutMouseFunc
 _glutMotionFunc
+_glutScrollFunc
 _glutPassiveMotionFunc
 _glutEntryFunc
 _glutVisibilityFunc

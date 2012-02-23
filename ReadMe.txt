@@ -3,10 +3,21 @@ Additions to standard Apple's GLUT:
 
 *)  Support for profile (core profile) selection using glutInitDisplayString "profile" keyword
 
+*)  Support for mouse scroll wheel using glutScrollFunc available via glutGetProcAddress
+
 Using OpenGL Core Profile
 -------------------------
 
 glutInitDisplayString("rgba double depth>=16 samples~8 profile=32");
+
+Using Scroll Wheel
+------------------
+
+typedef void (*glutScrollFunc_t)(void (*)(float, float));
+glutScrollFunc_t glutScrollFunc;
+
+glutScrollFunc = (glutScrollFunc_t)glutGetProcAddress("glutScrollFunc");
+if(glutScrollFunc) glutScrollFunc(myScrollHandler);
 
 To build and install GLUT Framework:
 ------------------------------------

@@ -187,6 +187,7 @@ typedef void (GLUTCALLBACK *GLUTreshapeCB) (int, int);
 typedef void (GLUTCALLBACK *GLUTkeyboardCB) (unsigned char, int, int);
 typedef void (GLUTCALLBACK *GLUTmouseCB) (int, int, int, int);
 typedef void (GLUTCALLBACK *GLUTmotionCB) (int, int);
+typedef void (GLUTCALLBACK *GLUTscrollCB) (float, float);
 typedef void (GLUTCALLBACK *GLUTpassiveCB) (int, int);
 typedef void (GLUTCALLBACK *GLUTentryCB) (int);
 typedef void (GLUTCALLBACK *GLUTvisibilityCB) (int);

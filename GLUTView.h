@@ -29,6 +29,7 @@
    GLUTkeyboardCB       _keyUpFunc;
    GLUTmouseCB          _mouseFunc;
    GLUTmotionCB         _motionFunc;
+   GLUTscrollCB         _scrollFunc;
    GLUTpassiveCB        _passiveMotionFunc;
    GLUTentryCB          _entryFunc;
    GLUTspecialCB        _specialFunc;
@@ -137,6 +138,7 @@
 - (void)setKeyUpCallback: (GLUTkeyboardCB)func;
 - (void)setMouseCallback: (GLUTmouseCB)func;
 - (void)setMotionCallback: (GLUTmotionCB)func;
+- (void)setScrollCallback: (GLUTscrollCB)func;
 - (void)setPassiveMotionCallback: (GLUTpassiveCB)func;
 - (void)setEntryCallback: (GLUTentryCB)func;
 - (void)setSpecialDownCallback: (GLUTspecialCB)func;

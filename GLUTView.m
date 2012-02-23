@@ -9,6 +9,14 @@
 #import "GLUTWindow.h"
 #import "GLUTMenu.h"
 
+@interface NSEvent(DeviceDelta)
+// Snow Leopard
+- (CGFloat)deviceDeltaX;
+- (CGFloat)deviceDeltaY;
+// Lion
+- (CGFloat)scrollingDeltaX;
+- (CGFloat)scrollingDeltaY;
+@end
 
 @interface GLUTView(GLUTPrivate)
 - (void)_commonReshape;
@@ -404,6 +412,7 @@ static GLUTView *	__glutVisibilityUpdateTail = NULL;
 - (void)setKeyUpCallback: (GLUTkeyboardCB)func { _keyUpFunc = func; }
 - (void)setMouseCallback: (GLUTmouseCB)func { _mouseFunc = func; }
 - (void)setMotionCallback: (GLUTpassiveCB)func { _motionFunc = func; }
+- (void)setScrollCallback: (GLUTscrollCB)func { _scrollFunc = func; }
 - (void)setSpecialDownCallback: (GLUTspecialCB)func { _specialFunc = func; }
 - (void)setSpecialUpCallback: (GLUTspecialCB)func { _specialUpFunc = func; }
 
@@ -1695,6 +1704,20 @@ GLUquadricObj *__glutGetQuadObj(void)
    if(_passiveMotionFunc) {
       __glutSetWindow(self);
       (*_passiveMotionFunc)(rint(location.x), rint(location.y));
+   }
+}
+
+- (void)scrollWheel: (NSEvent *)theEvent
+{
+   if(_scrollFunc) {
+      __glutSetWindow(self);
+      float dx, dy;
+      if([theEvent respondsToSelector:@selector(scrollingDeltaX)]) {
+         dx = theEvent.scrollingDeltaX; dy = theEvent.scrollingDeltaY;
+      } else {
+         dx = theEvent.deviceDeltaX; dy = theEvent.deviceDeltaY;
+      }
+      if(dx != 0.0f || dy != 0.0f) (*_scrollFunc)(dx, dy);
    }
 }
 
