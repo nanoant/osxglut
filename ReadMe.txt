@@ -1,3 +1,13 @@
+Additions to standard Apple's GLUT:
+-----------------------------------
+
+*)  Support for profile (core profile) selection using glutInitDisplayString "profile" keyword
+
+Using OpenGL Core Profile
+-------------------------
+
+glutInitDisplayString("rgba double depth>=16 samples~8 profile=32");
+
 To build and install GLUT Framework:
 ------------------------------------
 
