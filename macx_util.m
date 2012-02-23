@@ -30,7 +30,7 @@ void *__glutGetGLProcAddress(const char *name)
          // This is a 'glut*' function
          handlePtr = &glutHandle;
          if( NULL == *handlePtr )
-            *handlePtr = dlopen("/System/Library/Frameworks/GLUT.framework/GLUT", RTLD_LAZY | RTLD_GLOBAL);
+            *handlePtr = dlopen([[[NSBundle bundleForClass:[GLUTApplication class]] executablePath] cString], RTLD_LAZY | RTLD_GLOBAL);
       } else {
          // This is a 'gl*' function
          handlePtr = &glHandle;
