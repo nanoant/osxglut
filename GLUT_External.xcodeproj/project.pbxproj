@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8DC2EF510486A6940098B216 /* GLUT_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF5E0370ADEE00C91783 /* GLUT_Prefix.pch */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
-		8E409B930BCC4D5D0079132C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DC2EF5A0486A6940098B216 /* Info.plist */; };
 		8E5A3ED60BCD4FEE00D0AF36 /* libForeground.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5A3ED50BCD4FEE00D0AF36 /* libForeground.a */; };
 		8E6D26EC05ED0E8500AF4925 /* GLUTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D26E505ED0E8500AF4925 /* GLUTWindow.m */; };
 		8E6D26ED05ED0E8500AF4925 /* GLUTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D26E605ED0E8500AF4925 /* GLUTView.m */; };
@@ -713,9 +712,16 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+			};
 			buildConfigurationList = 8E7287590BCC070B00E1A77A /* Build configuration list for PBXProject "GLUT_External" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* GLUT */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
@@ -756,7 +762,6 @@
 				8E6D27B505ED111B00AF4925 /* toprightCursor.tiff in Resources */,
 				8E6D27B605ED111B00AF4925 /* upDownCursor.tiff in Resources */,
 				8E6D27B705ED111B00AF4925 /* waitCursor.tiff in Resources */,
-				8E409B930BCC4D5D0079132C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,16 +917,22 @@
 		8E72875A0BCC070B00E1A77A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc7400,
-					ppc64,
-					i386,
-					x86_64,
-				);
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_DEBUGGING_SYMBOLS = full;
 				GCC_ENABLE_OBJC_GC = supported;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
 				GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS = NO;
@@ -947,6 +958,7 @@
 				GCC_WARN_SHADOW = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
@@ -954,11 +966,13 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-Wall",
 					"-Werror",
 				);
+				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
@@ -966,14 +980,19 @@
 		8E72875B0BCC070B00E1A77A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc7400,
-					ppc64,
-					i386,
-					x86_64,
-				);
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_ENABLE_OBJC_GC = supported;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
 				GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -998,6 +1017,7 @@
 				GCC_WARN_SHADOW = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
@@ -1005,11 +1025,12 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_CFLAGS = (
 					"-Wall",
 					"-Werror",
 				);
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1043,6 +1064,7 @@
 					"-seg1addr",
 					3E000000,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.glut;
 				PRODUCT_NAME = GLUT;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
@@ -1084,6 +1106,7 @@
 					"-seg1addr",
 					3E000000,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.glut;
 				PRODUCT_NAME = GLUT;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
