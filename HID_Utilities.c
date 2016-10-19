@@ -1044,7 +1044,7 @@ static io_iterator_t HIDGetIterator (const mach_port_t masterPort, UInt32 usageP
 	hidMatchDictionary = HIDSetUpMatchingDictionary (usagePage, usage);
 	if (NULL == hidMatchDictionary)
 	{
-		HIDReportError ("Couldn’t create a matching dictionary.");
+		HIDReportError ("Couldn't create a matching dictionary.");
 		return hidObjectIterator;
 	}
 

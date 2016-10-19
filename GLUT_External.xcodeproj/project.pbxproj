@@ -237,7 +237,7 @@
 		8E6D276905ED102900AF4925 /* glut_roman.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = glut_roman.c; sourceTree = "<group>"; };
 		8E6D276A05ED102900AF4925 /* glut_shapes.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = glut_shapes.c; sourceTree = "<group>"; };
 		8E6D278305ED10DE00AF4925 /* Caution.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Caution.tiff; sourceTree = "<group>"; };
-		8E6D278605ED10FC00AF4925 /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/GLUTUI.strings; sourceTree = "<group>"; };
+		8E6D278605ED10FC00AF4925 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/GLUTUI.strings; sourceTree = "<group>"; };
 		8E6D278905ED110900AF4925 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/GLUTPreferences.nib; sourceTree = "<group>"; };
 		8E6D278B05ED110900AF4925 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/GLUT.nib; sourceTree = "<group>"; };
 		8E6D278D05ED110900AF4925 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/GLUTClipboard.nib; sourceTree = "<group>"; };
