@@ -360,7 +360,7 @@ void __glutMatchHIDPrefsToDevices (void)
 	// joyInputMenu will be left as it is in the nib
 	struct _GLUTinputActionRec * inputARec = __glutGetJoystickDeviceElement ([joyInputMenu indexOfSelectedItem]);
 	[joyInverted setState:inputARec->invertMul];
-	if (inputARec->pElement && inputARec->pElement->name)
+	if (inputARec->pElement && inputARec->pElement->name[0])
 		[joyElement setStringValue:[NSString stringWithFormat:@"%s", inputARec->pElement->name]];
 	else
 		[joyElement setStringValue:NSLocalizedStringFromTableInBundle(@"Not assigned.", @"GLUTUI", __glutGetFrameworkBundle(), @"Not assigned.")];
@@ -370,7 +370,7 @@ void __glutMatchHIDPrefsToDevices (void)
 	// spaceInputMenu will be left as it is in the nib
 	inputARec = __glutGetSpaceballDeviceElement ([joyInputMenu indexOfSelectedItem]);
 	[spaceInverted setState:inputARec->invertMul];
-	if (inputARec->pElement && inputARec->pElement->name)
+	if (inputARec->pElement && inputARec->pElement->name[0])
 		[spaceElement setStringValue:[NSString stringWithFormat:@"%s", inputARec->pElement->name]];
 	else
 		[spaceElement setStringValue:NSLocalizedStringFromTableInBundle(@"Not assigned.", @"GLUTUI", __glutGetFrameworkBundle(), @"Not assigned.")];

@@ -36,6 +36,7 @@ NSString *GLUTWindowFrame = @"GLUTWindowFrame";
 
 static BOOL 		gInitialized = NO;
 static NSArray *	gServicesTypes = nil;
+static NSArray *	gReturnTypes = nil;
 
 
 + (void)initialize
@@ -44,7 +45,8 @@ static NSArray *	gServicesTypes = nil;
 		gInitialized = YES;
 		
 		gServicesTypes = [[NSArray arrayWithObjects: NSTIFFPboardType, NSRTFDPboardType, nil] retain];
-		[NSApp registerServicesMenuSendTypes: gServicesTypes returnTypes: nil];
+        gReturnTypes = [[NSArray arrayWithObjects: NSStringPboardType, nil] retain];
+        [NSApp registerServicesMenuSendTypes: gServicesTypes returnTypes: gReturnTypes];
 	}
 }
 
@@ -562,7 +564,9 @@ static NSArray *	gServicesTypes = nil;
 	[myTextAttachment release];
 		
 		// return the flattend data
-	return [myString RTFDFromRange: NSMakeRange(0, [myString length]) documentAttributes: nil];
+    NSDictionary<NSString *,id> *docAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+        NSRTFDTextDocumentType, NSDocumentTypeDocumentAttribute, nil];;
+	return [myString RTFDFromRange: NSMakeRange(0, [myString length]) documentAttributes: docAttributes];
 }
 
 	/* Returns a data object containing the current contents of the receiving window */

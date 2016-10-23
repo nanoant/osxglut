@@ -10,8 +10,11 @@
 #import "GLUTApplication.h"
 
 #if defined(__LP64__)
-#import <QTKit/QTMovie.h>
-#import <QTKit/QTMovieView.h>
+#ifdef MOVIE_SUPPORT
+    // Needs to be replaced with AVFoundation.
+    #import <QTKit/QTMovie.h>
+    #import <QTKit/QTMovieView.h>
+#endif
 #endif // #if defined(__LP64__)
 
 
@@ -208,6 +211,7 @@
                               @"\"%@\" image"), type];
 }
 
+#ifdef MOVIE_SUPPORT
 - (void)_getMovieView: (NSView **)aMovieView description: (NSString **)aDesc
             fromPasteboard: (NSPasteboard *)pboard type: (NSString *)type
 {
@@ -235,6 +239,7 @@
                               __glutGetFrameworkBundle(),
                               @"Movie");
 }
+#endif
 
 - (void)_getUnknownView: (NSView **)aView description: (NSString **)aDesc
             fromPasteboard: (NSPasteboard *)pboard type: (NSString *)type
@@ -263,6 +268,7 @@
       [self _getTextView: &pboardView description: &pboardDesc fromPasteboard: pboard type: type];
    }
 
+#ifdef MOVIE_SUPPORT
    if(pboardView == nil) {
          /* Knock, knock, QT movie there ? */
 #if defined(__LP64__)
@@ -275,7 +281,8 @@
          [self _getMovieView: &pboardView description: &pboardDesc fromPasteboard: pboard type: type];
       }
    }
-   
+#endif
+
    if(pboardView == nil) {
          /* Knock, knock, image there ? */
       type = [pboard availableTypeFromArray: [NSImage imagePasteboardTypes]];
